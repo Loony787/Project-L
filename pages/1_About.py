@@ -14,21 +14,22 @@ def Start():
 
 def Content():
     with st.expander("What is this about?"):
-        st.markdown("This Website is a personal project. " \
+        st.markdown("This website is a personal project. " \
                     "Its primary purpose was to build a small programming project, " \
                     "while also providing a way to showcase my skills to potential recruiters. " \
-                    "I intentionally chose a project which I actively interact with myself, rather than something purely technical like a to-do list.")
-
-    with st.expander("What am I interested in?"):
-        st.markdown("I am particularly interested in analyzing data to derive possible implications or insights from it and explain underlying patterns or differences. " \
-                    "There is also a particular focus on identifying inefficiencies, especially in areas such as infrastructure, traffic and administrative processes, " \
-                    "where significant optimization potential often exists." \
-                    "The focus stems from everyday exposure to issues such as long delays, traffic congestion, and inefficient administrative processes.")
+                    "I intentionally chose a project which I would actively use myself, rather than something purely technical like a to-do list.")
 
     with st.expander("What does the roadmap look like?"):
-        st.markdown("Once the core functionality is stable, I plan to focus on analyzing datasets that I find interesting, relevant and / or funny. " \
-                    "That could be something like comparing football clubs in terms of market value or transfer balance relative to performance (Wins / Trophies / Revenue). " \
-                    "From a technical perspective, I aim to integrate APIs to enable automated data updates and more dynamic analyses.")
+        st.markdown("Once the core functionality is stable, I plan to analyze datasets that I find interesting, relevant and / or funny. " \
+                    "This could include comparing football clubs in terms of market value or transfer balance relative to performance (wins / trophies / revenue). " \
+                    "From a technical perspective, I aim to integrate APIs to enable automated data updates and more dynamic analyses.")    
+
+    with st.expander("What am I interested in?"):
+        st.markdown("I am particularly interested in analyzing data to derive insights from it and explain underlying patterns or differences. " \
+                    "There is also a particular focus on identifying inefficiencies, especially in areas such as infrastructure, traffic and administrative processes, " \
+                    "where significant optimization potential often exists. " \
+                    "The focus stems from everyday exposure to issues such as long delays, traffic congestion, and inefficient administrative processes.")
+
 
 Start()
 Content()
