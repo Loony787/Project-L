@@ -31,11 +31,11 @@ def Pop_Up():
 
     col1, col2, col3 = st.columns(3)
     
-    col1.info("⚠️")
-    col2.info("CHOOSE AN OPTION TO ENTER! :D")
-    col3.info("⚠️")
+    col1.info("             ⚠️")
+    col2.info(" CHOOSE AN OPTION TO ENTER! :D")
+    col3.info("             ⚠️")
 
-    recruiter = col1.button("RECRUITER",width="stretch",on_click=st.rerun())
+    recruiter = col1.button("RECRUITER",width="stretch")
     guest = col2.button("GUEST", width="stretch")
     friend = col3.button("FRIEND", width="stretch")
 
@@ -48,6 +48,7 @@ def Pop_Up():
 
     if st.session_state.role != None: 
         sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),st.session_state.role])
+
 
 def Main_Menu():
     st.header("Menu",text_alignment="center")
