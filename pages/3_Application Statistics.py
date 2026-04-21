@@ -57,10 +57,10 @@ OFF_Delta = f"{round(OFF_Value / TA_Value * 100, 2)}%"
 
 def Absolute_METRICS():
     col1, col2, col3= st.columns(3)
-    col1.metric(label= 'Total Applications', value= TA_Value)
-    col2.metric(label= 'Open Applications', value= OA_Value, delta=OA_Delta, delta_color='off', delta_arrow='off')
-    col3.metric(label= 'Rejected Applications', value= RA_Value, delta=RA_Delta, delta_color='off', delta_arrow='off')
-    col1.metric(label= 'Interviews', value= INT_Value, delta= INT_Delta, delta_color='off', delta_arrow='off')
+    col1.metric(label= 'Total Applications', value= TA_Value, delta="--")
+    col2.metric(label= 'Open Applications', value= OA_Value, delta=OA_Delta, delta_color='blue', delta_arrow='off')
+    col3.metric(label= 'Rejected Applications', value= RA_Value, delta=RA_Delta, delta_color='primary', delta_arrow='off')
+    col1.metric(label= 'Interviews', value= INT_Value, delta= INT_Delta, delta_color='violet', delta_arrow='off')
     col2.metric(label= 'Offers', value=OFF_Value, delta=OFF_Delta, delta_color='off', delta_arrow='off')
     col3.metric(label= 'No Answer Expected', value= NAE_Value, delta=NAE_Delta, delta_description='*Application was 2 Months ago', delta_color='off', delta_arrow='off')
 
