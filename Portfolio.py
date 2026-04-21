@@ -31,20 +31,23 @@ def Pop_Up():
 
     col1, col2, col3 = st.columns(3)
     
-    col1.info("             ⚠️")
-    col2.info(" CHOOSE AN OPTION TO ENTER! :D")
-    col3.info("             ⚠️")
+    col1.info("⚠️")
+    col2.info("CHOOSE AN OPTION TO ENTER! :D")
+    col3.info("⚠️")
 
-    recruiter = col1.button("RECRUITER",width="stretch")
+    recruiter = col1.button("RECRUITER",width="stretch",on_click=Main_Menu)
     guest = col2.button("GUEST", width="stretch")
     friend = col3.button("FRIEND", width="stretch")
 
     if recruiter:
         st.session_state.role = 'RECRUITER'
+        st.rerun()
     elif guest:
         st.session_state.role = 'GUEST'
+        st.rerun()
     elif friend:
         st.session_state.role = 'FRIEND'
+        st.rerun()
 
     if st.session_state.role != None: 
         sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),st.session_state.role])
