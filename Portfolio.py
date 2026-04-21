@@ -51,9 +51,7 @@ def Pop_Up():
         st.rerun()
 
     if st.session_state.role != None: 
-        with st.spinner("LOADING............"):
-            time.sleep(5)
-            sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),st.session_state.role])
+        sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),st.session_state.role])
 
 
 def Main_Menu():
@@ -79,4 +77,5 @@ def Main_Menu():
 if 'role' not in st.session_state or st.session_state.role is None:
     Pop_Up()
 else:
-    Main_Menu()
+    with st.spinner("Loading..........."):
+        Main_Menu()
