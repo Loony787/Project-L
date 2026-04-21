@@ -4,6 +4,10 @@ import gspread
 from datetime import datetime
 import time
 
+#LOAD---------------------------
+with st.spinner("Just a second...................",show_time=True):
+    time.sleep(5)
+#REST---------------------------
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
 st.title("Project: L",text_alignment="center")
 st.divider()
@@ -77,5 +81,6 @@ def Main_Menu():
 if 'role' not in st.session_state or st.session_state.role is None:
     Pop_Up()
 else:
-    with st.spinner("Loading..........."):
-        Main_Menu()
+    with st.spinner("LOAD", show_time=True):
+        time.sleep(5)
+    Main_Menu()
