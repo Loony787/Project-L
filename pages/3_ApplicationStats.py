@@ -44,7 +44,7 @@ def BarChart():
 
 OA_Value = df[df["Status"] == "Pending"].shape[0]
 RA_Value = df[df["Status"] == "Rejected"].shape[0]
-NAE_Value = df[df["Status"] == "GameIsGone"].shape[0]
+NAE_Value = df[df["Status"] == "No Answer"].shape[0]
 INT_Value = df[df["Status"] == "Interviewed"].shape[0]
 OFF_Value = df[df["Status"] == "Offer"].shape[0]
 TA_Value = OA_Value + RA_Value + NAE_Value + INT_Value + OFF_Value
