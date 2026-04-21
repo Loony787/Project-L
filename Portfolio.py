@@ -87,7 +87,4 @@ def Main_Menu():
 if 'role' not in st.session_state or st.session_state.role is None:
     Pop_Up()
 else:
-    col1, col2, col3 = st.columns(3)
-    with col2.spinner("Loading...", show_time=True):
-        time.sleep(3)
     Main_Menu()
