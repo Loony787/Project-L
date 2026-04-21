@@ -49,11 +49,11 @@ INT_Value = df[df["Status"] == "Interviewed"].shape[0]
 OFF_Value = df[df["Status"] == "Offer"].shape[0]
 TA_Value = OA_Value + RA_Value + NAE_Value + INT_Value + OFF_Value
 
-OA_Delta = OA_Value / TA_Value
-RA_Delta = RA_Value / TA_Value
-NAE_Delta = NAE_Value / TA_Value
-INT_Delta = INT_Value / TA_Value
-OFF_Delta = OFF_Value / TA_Value
+float(OA_Delta,2) = OA_Value / TA_Value * 100
+float(RA_Delta,3) = RA_Value / TA_Value * 100
+NAE_Delta = NAE_Value / TA_Value * 100
+INT_Delta = INT_Value / TA_Value * 100
+OFF_Delta = OFF_Value / TA_Value * 100
 
 def Absolute_METRICS():
     col1, col2, col3= st.columns(3)
