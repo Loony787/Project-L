@@ -11,6 +11,8 @@ credentials = st.secrets["gcp_service_account"]
 gc = gspread.service_account_from_dict(credentials)
 sheet = gc.open("Project-L").sheet1
 
+st.session_state.role = None
+
 #Menu
 st.markdown("""
     <style>
@@ -25,10 +27,12 @@ st.markdown("""
 
 
 def Pop_Up():
-    st.session_state.role = None
-
     col1, col2, col3 = st.columns(3)
+    
+    col1.warning()
     col2.warning("CHOOSE AN OPTION TO ENTER! :D")
+    col3.warning()
+
     recruiter = col1.button("RECRUITER",width="stretch")
     guest = col2.button("GUEST", width="stretch")
     friend = col3.button("FRIEND", width="stretch")
