@@ -11,32 +11,43 @@ credentials = st.secrets["gcp_service_account"]
 gc = gspread.service_account_from_dict(credentials)
 sheet = gc.open("Project-L").sheet1
 
+#Menu
+st.markdown("""
+    <style>
+    .stButton button {
+        font-size: 50px;
+        height: 150px;
+        color: white;
+        background-color: grey;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
 def Pop_Up():
     st.session_state.role = None
+
     col1, col2, col3 = st.columns(3)
-    role = col1.button("RECRUITER",width="stretch")
-    role = col2.button("GUEST", width="stretch")
-    role = col3.button("FRIEND", width="stretch")
-    st.warning("CHOOSE AN OPTION TO ENTER!:D")
-    if role == "RECRUITER" or role == "GUEST" or role == "FRIEND":
-        st.session_state.role = role 
+    col2.warning("CHOOSE AN OPTION TO ENTER! :D")
+    recruiter = col1.button("RECRUITER",width="stretch")
+    guest = col2.button("GUEST", width="stretch")
+    friend = col3.button("FRIEND", width="stretch")
+
+    if recruiter:
+        st.session_state.role = 'RECRUITER'
+    elif guest:
+        st.session_state.role = 'GUEST'
+    elif friend:
+        st.session_state.role = 'FRIEND'
+
+    if st.session_state.role: 
         sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),st.session_state.role])
 
 def Main_Menu():
     st.header("Menu",text_alignment="center")
     st.markdown("Welcome to my page! Here you have a little overview on which pages are available.\nFeel free to discover all of them!")
     st.warning("Work is currently in progress. Most of the pages have not been filled yet.")
-    #Menu
-    st.markdown("""
-        <style>
-        .stButton button {
-            font-size: 50px;
-            height: 150px;
-            color: white;
-            background-color: grey;
-        }
-        </style>
-    """, unsafe_allow_html=True)
+  
 
     col1, col2= st.columns(2)
     with col1:
