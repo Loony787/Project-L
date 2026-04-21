@@ -5,12 +5,12 @@ from datetime import datetime
 import time
 
 #LOAD---------------------------
-if 'SeshStart' not in st.session_state:
+if 'starting' not in st.session_state:
     with st.spinner("Just a second...................",show_time=True):
-        time.sleep(5)
-    SeshStart = "ABC"
+        time.sleep(3)
+    st.session_state.starting = True
 else:
-    SeshStart = "ABC"
+    st.session_state.starting = True
 #REST---------------------------
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
 st.title("Project: L",text_alignment="center")
