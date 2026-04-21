@@ -11,7 +11,7 @@ credentials = st.secrets["gcp_service_account"]
 gc = gspread.service_account_from_dict(credentials)
 sheet = gc.open("Project-L").sheet1
 
-
+st.session_state.role = None
 
 #Menu
 st.markdown("""
