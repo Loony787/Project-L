@@ -13,9 +13,12 @@ sheet = gc.open("Project-L").sheet1
 
 def Pop_Up():
     st.session_state.role = None
-    role = st.button("RECRUITER"), st.button("GUEST"), st.button("FRIEND")
+    col1, col2, col3 = st.columns(3)
+    role = col1.button("RECRUITER",width="stretch")
+    role = col2.button("GUEST", width="stretch")
+    role = col3.button("FRIEND", width="stretch")
     st.warning("CHOOSE AN OPTION TO ENTER!:D")
-    if st.button("Submit"):
+    if role == "RECRUITER" or role == "GUEST" or role == "FRIEND":
         st.session_state.role = role 
         sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),st.session_state.role])
 
