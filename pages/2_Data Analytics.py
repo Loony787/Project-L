@@ -6,7 +6,7 @@ st.page_link("Portfolio.py", label="Home")
 if st.session_state.get('role') is None:
     st.switch_page("Portfolio.py")
 
-st.title("Data Analytics")
+st.title("Data Analytics", text_alignment='center')
 
 tab1, tab2, tab3 = st.tabs(["X", "X", "X"])
 
