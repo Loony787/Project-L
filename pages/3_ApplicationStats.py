@@ -27,7 +27,7 @@ df.columns = ["Company", "Status", "Rating", "Location", "Application Month", "I
 df.index = range(1, len(df)+1)
 df.index.name = "No."
 df = df[df.iloc[:, 0] != ""]
-df = df['Status'].replace({
+df['Status']= df['Status'].replace({
     'GameIsGone': 'No Answer'})
 #st.dataframe(df)
 
