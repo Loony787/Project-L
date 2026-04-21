@@ -11,8 +11,9 @@ credentials = st.secrets["gcp_service_account"]
 gc = gspread.service_account_from_dict(credentials)
 sheet = gc.open("Project-L").sheet1
 
-st.session_state.role = None
-
+if 'role' not in st.session_state:
+    st.session_state.role = None
+    
 #Menu
 st.markdown("""
     <style>
@@ -27,6 +28,7 @@ st.markdown("""
 
 
 def Pop_Up():
+
     col1, col2, col3 = st.columns(3)
     
     col1.warning("-")
@@ -44,7 +46,7 @@ def Pop_Up():
     elif friend:
         st.session_state.role = 'FRIEND'
 
-    if st.session_state.role: 
+    if st.session_state.role != None: 
         sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),st.session_state.role])
 
 def Main_Menu():
