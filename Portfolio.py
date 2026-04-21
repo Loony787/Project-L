@@ -89,3 +89,5 @@ def Start_Page():
         Pop_Up()
     else:
         Main_Menu()
+
+Start_Page()
