@@ -31,11 +31,11 @@ def Pop_Up():
 
     col1, col2, col3 = st.columns(3)
     
-    col1.warning("-")
-    col2.warning("CHOOSE AN OPTION TO ENTER! :D")
-    col3.warning("-")
+    col1.info("⚠️")
+    col2.info("CHOOSE AN OPTION TO ENTER! :D")
+    col3.info("⚠️")
 
-    recruiter = col1.button("RECRUITER",width="stretch")
+    recruiter = col1.button("RECRUITER",width="stretch",on_click=st.rerun())
     guest = col2.button("GUEST", width="stretch")
     friend = col3.button("FRIEND", width="stretch")
 
