@@ -5,8 +5,10 @@ from datetime import datetime
 import time
 
 #LOAD---------------------------
+
 if 'starting' not in st.session_state:
-    with st.spinner("Just a second...................",show_time=True):
+    col1, col2, col3 = st.columns(3)
+    with col2.spinner("Just a second...................",show_time=True):
         time.sleep(3)
     st.session_state.starting = True
 else:
@@ -85,6 +87,7 @@ def Main_Menu():
 if 'role' not in st.session_state or st.session_state.role is None:
     Pop_Up()
 else:
-    with st.spinner("LOAD", show_time=True):
-        time.sleep(5)
+    col1, col2, col3 = st.columns(3)
+    with col2.spinner("LOAD", show_time=True):
+        time.sleep(3)
     Main_Menu()
