@@ -9,7 +9,8 @@ st.page_link("Portfolio.py", label="Home")
 if st.session_state.get('role') is None:
     st.switch_page("Portfolio.py")
 
-st.title("Applications",text_alignment='center')
+st.title("Project: J",text_alignment='center')
+st.header("Application statistics", text_alignment='center')
 
 #Import--------------------------------------------------------------------------------------------------------------------------
 
@@ -26,7 +27,8 @@ df.columns = ["Company", "Status", "Rating", "Location", "Application Month", "I
 df.index = range(1, len(df)+1)
 df.index.name = "No."
 df = df[df.iloc[:, 0] != ""]
-
+df = df['Status'].replace({
+    'GameIsGone': 'No Answer'})
 #st.dataframe(df)
 
 #Next Step-------------------------------------------------------------------------------------------------------------------------

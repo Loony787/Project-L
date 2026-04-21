@@ -8,16 +8,16 @@ if st.session_state.get('role') is None:
 
 st.title("Data Analytics")
 
-# tab1, tab2, tab3 = st.tabs(["Correlations", "InvestmentEvaluations", "Papers / Articles / Studies"])
+tab1, tab2, tab3 = st.tabs(["X", "X", "X"])
 
-# with tab1:
-#     st.markdown("Text")
+with tab1:
+    st.markdown("Text")
 
-# with tab2:
-#     st.markdown("Text")
+with tab2:
+    st.markdown("Text")
 
-# with tab3:
-#     st.markdown("Text")
+with tab3:
+    st.markdown("Text")
 
 # st.markdown("Schulden von Gemeinden in Deutschland (pro Einw / in % der Einnahmen)")
 # st.markdown("Impact factor von Spielern")#Konstanz, Ballbesitz, Pässe / Passqoute / Tore / Torschüsse / Chancen / Flanken / Pässe ins letzte drittel...
