@@ -49,15 +49,20 @@ INT_Value = df[df["Status"] == "Interviewed"].shape[0]
 OFF_Value = df[df["Status"] == "Offer"].shape[0]
 TA_Value = OA_Value + RA_Value + NAE_Value + INT_Value + OFF_Value
 
+OA_Delta = OA_Value / TA_Value
+RA_Delta = RA_Value / TA_Value
+NAE_Delta = NAE_Value / TA_Value
+INT_Delta = INT_Value / TA_Value
+OFF_Delta = OFF_Value / TA_Value
 
 def Absolute_METRICS():
     col1, col2, col3= st.columns(3)
     col1.metric(label= 'Total Applications', value= TA_Value)
-    col2.metric(label= 'Open Applications', value= OA_Value)
-    col3.metric(label= 'Rejected Applications', value= RA_Value)
-    col1.metric(label= 'Interviews', value= INT_Value)
-    col2.metric(label= 'Offers', value=OFF_Value)
-    col3.metric(label= 'No Answer Expected', value= NAE_Value,delta_description='*Application was 2 Months ago')
+    col2.metric(label= 'Open Applications', value= OA_Value, delta=OA_Delta)
+    col3.metric(label= 'Rejected Applications', value= RA_Value, delta=RA_Delta)
+    col1.metric(label= 'Interviews', value= INT_Value, delta= INT_Delta)
+    col2.metric(label= 'Offers', value=OFF_Value, delta=OFF_Delta)
+    col3.metric(label= 'No Answer Expected', value= NAE_Value, delta=NAE_Delta, delta_description='*Application was 2 Months ago')
 
 #RUN-----------------------------------------------------------------------------------------------------------------
 st.divider()

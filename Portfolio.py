@@ -53,6 +53,7 @@ def Pop_Up():
 
     if recruiter:
         st.session_state.role = 'RECRUITER'
+        st.rerun()
     elif guest:
         st.session_state.role = 'GUEST'
         st.rerun()
