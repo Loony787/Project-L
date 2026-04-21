@@ -47,7 +47,7 @@ def Pop_Up():
     col2.info("CHOOSE AN OPTION TO ENTER! :D")
     col3.info("⚠️")
 
-    recruiter = col1.button("RECRUITER",width="stretch",on_click=Start_Page)
+    recruiter = col1.button("RECRUITER",width="stretch")
     guest = col2.button("GUEST", width="stretch")
     friend = col3.button("FRIEND", width="stretch")
 
@@ -84,10 +84,7 @@ def Main_Menu():
             st.switch_page("pages/4_CV.py")
 
 
-def Start_Page():
-    if 'role' not in st.session_state or st.session_state.role is None:
-        Pop_Up()
-    else:
-        Main_Menu()
-
-Start_Page()
+if 'role' not in st.session_state or st.session_state.role is None:
+    Pop_Up()
+else:
+    Main_Menu()
