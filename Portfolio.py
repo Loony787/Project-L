@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import gspread
 from datetime import datetime
+import time
 
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
 st.title("Project: L",text_alignment="center")
@@ -29,6 +30,7 @@ st.markdown("""
 
 def Pop_Up():
 
+
     col1, col2, col3 = st.columns(3)
     
     col1.info("⚠️")
@@ -49,7 +51,9 @@ def Pop_Up():
         st.rerun()
 
     if st.session_state.role != None: 
-        sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),st.session_state.role])
+        with st.spinner("LOADING............"):
+            time.sleep(5)
+            sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),st.session_state.role])
 
 
 def Main_Menu():
