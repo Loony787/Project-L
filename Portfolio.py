@@ -53,9 +53,9 @@ def Pop_Up():
         with col2.spinner("Loading...", show_time=True):
             time.sleep(3)
     elif guest:
+        st.session_state.role = 'GUEST'
         with col2.spinner("Loading...", show_time=True):
             time.sleep(3)
-        st.session_state.role = 'GUEST'
         st.rerun()
     elif friend:
         with col2.spinner("Loading...", show_time=True):
