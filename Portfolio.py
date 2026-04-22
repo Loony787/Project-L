@@ -34,9 +34,10 @@ st.markdown("""
 st.markdown("""
     <style>
     .stPageLink a {
-        display: block;
-        text-align: center;
-        background-color: grey;
+        display: flex;
+        justfy-content: center;
+        align-items: center;
+        background-color: blue;
         color: white !important;
         font-size: 50px;
         font-weight: bold;
