@@ -57,9 +57,13 @@ def Pop_Up():
         st.session_state.role = 'RECRUITER'
         st.rerun()
     elif guest:
+        with st.spinner("Loading...", show_time=True):
+            time.sleep(3)
         st.session_state.role = 'GUEST'
         st.rerun()
     elif friend:
+        with st.spinner("Loading...", show_time=True):
+            time.sleep(3)
         st.session_state.role = 'FRIEND'
         st.rerun()
 
