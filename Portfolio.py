@@ -52,17 +52,17 @@ def Pop_Up():
     friend = col3.button("FRIEND", width="stretch")
 
     if recruiter:
-        with st.spinner("Loading...", show_time=True):
+        with col2.spinner("Loading...", show_time=True):
             time.sleep(3)
         st.session_state.role = 'RECRUITER'
         st.rerun()
     elif guest:
-        with st.spinner("Loading...", show_time=True):
+        with col2.spinner("Loading...", show_time=True):
             time.sleep(3)
         st.session_state.role = 'GUEST'
         st.rerun()
     elif friend:
-        with st.spinner("Loading...", show_time=True):
+        with col2.spinner("Loading...", show_time=True):
             time.sleep(3)
         st.session_state.role = 'FRIEND'
         st.rerun()
