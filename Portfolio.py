@@ -6,13 +6,11 @@ import time
 
 #LOAD---------------------------
 
-if 'starting' not in st.session_state:
-    col1, col2, col3 = st.columns(3)
-    with col2.spinner("Loading...",show_time=True):
-        time.sleep(5)
-    st.session_state.starting = True
-else:
-    st.session_state.starting = True
+# if 'starting' not in st.session_state:
+    
+#     st.session_state.starting = True
+# else:
+#     st.session_state.starting = True
 #REST---------------------------
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
 st.title("Project: L",text_alignment="center")
@@ -50,16 +48,10 @@ def Pop_Up():
     if recruiter:
         st.session_state.role = 'RECRUITER'
         st.rerun()
-        with col2.spinner("Loading...", show_time=True):
-            time.sleep(3)
     elif guest:
         st.session_state.role = 'GUEST'
-        with col2.spinner("Loading...", show_time=True):
-            time.sleep(3)
         st.rerun()
     elif friend:
-        with col2.spinner("Loading...", show_time=True):
-            time.sleep(3)
         st.session_state.role = 'FRIEND'
         st.rerun()
 
@@ -88,6 +80,9 @@ def Main_Menu():
 
 
 if 'role' not in st.session_state or st.session_state.role is None:
+    col1, col2, col3 = st.columns(3)
+    with col2.spinner("Loading...",show_time=True):
+        time.sleep(5)
     Pop_Up()
 else:
     Main_Menu()
