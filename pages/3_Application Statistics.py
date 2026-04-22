@@ -4,7 +4,6 @@ import gspread
 import time
 #Website------------------------------------------------------------------------------------------------------------------------
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
-st.page_link("Portfolio.py", label="Home")
 
 def Start():
     if st.session_state.get('role') is None:
@@ -15,8 +14,8 @@ with col3.spinner("Loading...",show_time=True):
     time.sleep(1)
 
 st.title("Project: J",text_alignment='center')
-st.header("Application statistics", text_alignment='center')
-
+st.header("Job Application Statistics", text_alignment='center')
+st.page_link("Portfolio.py", label="Home")
 #Import--------------------------------------------------------------------------------------------------------------------------
 
 credentials = st.secrets["gcp_service_account"]

@@ -70,9 +70,6 @@ def Main_Menu():
             st.switch_page("pages/2_Data Analytics.py")
     with col2:
         if st.button("Application Statistics",width="stretch"):
-            with loading_placeholder:
-                with loading_placeholder.spinner("Loading...",show_time=True):
-                    time.sleep(1.5)
             st.switch_page("pages/3_Application Statistics.py")
         if st.button("CV",width="stretch"):
             st.switch_page("pages/4_CV.py")
