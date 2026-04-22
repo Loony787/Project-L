@@ -85,10 +85,10 @@ def Main_Menu():
 
     col1, col2= st.columns(2)
     with col1:
-        st.page_link("About.py",width="stretch")
-        st.page_link("Data Analytics.py",width="stretch")
+        st.page_link("pages/1_About.py",width="stretch")
+        st.page_link("pages/2_Data Analytics.py",width="stretch")
     with col2:
-        st.page_link("Application Statistics.py",width="stretch")
+        st.page_link("pages/3_Application Statistics.py",width="stretch")
         st.button("CV",width="stretch")
 
 
