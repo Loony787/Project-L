@@ -41,17 +41,17 @@ st.markdown("""
 def Pop_Up():
     
     st.info("CHOOSE AN OPTION TO ENTER! :D")
-    
+
     col1, col2, col3 = st.columns(3)
     recruiter = col1.button("RECRUITER",width="stretch")
     guest = col2.button("GUEST", width="stretch")
     friend = col3.button("FRIEND", width="stretch")
 
     if recruiter:
-        with col2.spinner("Loading...", show_time=True):
-            time.sleep(3)
         st.session_state.role = 'RECRUITER'
         st.rerun()
+        with col2.spinner("Loading...", show_time=True):
+            time.sleep(3)
     elif guest:
         with col2.spinner("Loading...", show_time=True):
             time.sleep(3)
