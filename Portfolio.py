@@ -9,7 +9,7 @@ import time
 if 'starting' not in st.session_state:
     col1, col2, col3 = st.columns(3)
     with col2.spinner("Loading...",show_time=True):
-        time.sleep(3)
+        time.sleep(5)
     st.session_state.starting = True
 else:
     st.session_state.starting = True
@@ -52,6 +52,8 @@ def Pop_Up():
     friend = col3.button("FRIEND", width="stretch")
 
     if recruiter:
+        with st.spinner:
+            time.sleep(3)
         st.session_state.role = 'RECRUITER'
         st.rerun()
     elif guest:
