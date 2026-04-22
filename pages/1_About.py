@@ -2,20 +2,19 @@ import pandas as pd
 import streamlit as st
 import time
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
-
-col1, col2, col3 = st.columns(3)
-with col2.spinner("Loading...",show_time=True):
-    time.sleep(3)
 st.page_link("Portfolio.py", label="Home")
  
 st.title("ABOUT",text_alignment="center")
-
 
 def Start():
     if st.session_state.get('role') is None:
         st.switch_page("Portfolio.py")
 
+col1, col2, col3, col4, col5 = st.columns(5)
+with col3.spinner("Loading...",show_time=True):
+    time.sleep(1)
 
+#Content------------------------------------------------------------------------------------------------
 
 def Content():
     with st.expander("What is this about?",expanded=True):

@@ -1,12 +1,21 @@
 import pandas as pd
 import streamlit as st
+import time 
+
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
 st.page_link("Portfolio.py", label="Home")
 
-if st.session_state.get('role') is None:
-    st.switch_page("Portfolio.py")
-
+def Start():
+    if st.session_state.get('role') is None:
+        st.switch_page("Portfolio.py")
+Start()
 st.title("Data Analytics", text_alignment='center')
+
+col1, col2, col3, col4, col5 = st.columns(5)
+with col3.spinner("Loading...",show_time=True):
+    time.sleep(1)
+
+#Content-----------------------------------------------------------------------------------------------------
 
 tab1, tab2, tab3 = st.tabs(["X", "X", "X"])
 
