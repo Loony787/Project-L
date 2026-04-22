@@ -8,7 +8,7 @@ def Start():
 
 col1, col2, col3, col4, col5 = st.columns(5)
 with col3.spinner("Loading...",show_time=True):
-    time.sleep(1)
+    time.sleep(1.5)
 
 st.page_link("Portfolio.py", label="Home")
 st.title("About",text_alignment="center")
