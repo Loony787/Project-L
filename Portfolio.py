@@ -44,7 +44,7 @@ st.markdown("""
         border-radius: 10px;
         text-decoration: none !important;
         height: 150px;
-        line-height: 50px;
+        line-height: 150px;
     }
     .stPageLink a:hover {
         background-color: #555555;
