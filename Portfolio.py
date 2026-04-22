@@ -8,6 +8,10 @@ st.set_page_config(layout="wide",initial_sidebar_state="expanded")
 st.title("Project: L",text_alignment="center")
 st.divider()
 
+col1, col2, col3 = st.columns(3)
+with col3: 
+    loading_placeholder = st.empty()
+
 credentials = st.secrets["gcp_service_account"]
 gc = gspread.service_account_from_dict(credentials)
 sheet = gc.open("Project-L").sheet1
@@ -75,9 +79,9 @@ def Main_Menu():
 
 
 if 'role' not in st.session_state or st.session_state.role is None:
-    col1, col2, col3 = st.columns(3)
-    with col2.spinner("Loading...",show_time=True):
-        time.sleep(3)
+    with loading_placeholder:
+        with loading_placeholder.spinner("Loading...",show_time=True):
+            time.sleep(3)
     Pop_Up()
 else:
     Main_Menu()
