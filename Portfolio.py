@@ -55,7 +55,7 @@ def Pop_Up():
         with st.spinner:
             time.sleep(3)
         st.session_state.role = 'RECRUITER'
-        st.rerun()
+        #st.rerun()
     elif guest:
         st.session_state.role = 'GUEST'
         st.rerun()
