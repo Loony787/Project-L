@@ -10,30 +10,6 @@ col1, col2, col3, col4, col5 = st.columns(5)
 with col3.spinner("Loading...",show_time=True):
     time.sleep(1.5)
 
-st.markdown("""
-    <style>
-    .stPageLink a {
-        display: block;
-        text-align: center;
-        background-color: grey;
-        color: white !important;
-        font-size: 50px;
-        font-weight: bold;
-        padding: 15px;
-        border-radius: 10px;
-        text-decoration: none !important;
-        height: 150px;
-        line-height: 50px;
-    }
-    .stPageLink a:hover {
-        background-color: #555555;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-
-
-
 st.page_link("Portfolio.py", label="Home")
 st.title("About",text_alignment="center")
 #Content------------------------------------------------------------------------------------------------

@@ -19,7 +19,7 @@ sheet = gc.open("Project-L").sheet1
 if 'role' not in st.session_state:
     st.session_state.role = None
     
-#Men------------------------------------------------------------------------------------------------------------------------------
+#CSS------------------------------------------------------------------------------------------------------------------------------
 st.markdown("""
     <style>
     .stButton button {
@@ -31,6 +31,28 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+st.markdown("""
+    <style>
+    .stPageLink a {
+        display: block;
+        text-align: center;
+        background-color: grey;
+        color: white !important;
+        font-size: 50px;
+        font-weight: bold;
+        padding: 15px;
+        border-radius: 10px;
+        text-decoration: none !important;
+        height: 150px;
+        line-height: 50px;
+    }
+    .stPageLink a:hover {
+        background-color: #555555;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+#Functions--------------------------------------------------------------------------------------------------------------------------------------
 
 def Pop_Up():
     
@@ -63,16 +85,11 @@ def Main_Menu():
 
     col1, col2= st.columns(2)
     with col1:
-        if st.button("About",width="stretch"):
-            st.switch_page("pages/1_About.py")
-
-        if st.button("Data Analytics",width="stretch"):
-            st.switch_page("pages/2_Data Analytics.py")
+        st.page_link("About.py",width="stretch")
+        st.page_link("Data Analytics.py",width="stretch")
     with col2:
-        if st.button("Application Statistics",width="stretch"):
-            st.switch_page("pages/3_Application Statistics.py")
-        if st.button("CV",width="stretch"):
-            st.switch_page("pages/4_CV.py")
+        st.page_link("Application Statistics.py",width="stretch")
+        st.button("CV",width="stretch")
 
 
 if 'role' not in st.session_state or st.session_state.role is None:
