@@ -9,7 +9,7 @@ st.title("Project: L",text_alignment="center")
 st.divider()
 
 col1, col2, col3 = st.columns(3)
-with col3: 
+with col2: 
     loading_placeholder = st.empty()
 
 credentials = st.secrets["gcp_service_account"]
@@ -70,9 +70,9 @@ def Main_Menu():
             st.switch_page("pages/2_Data Analytics.py")
     with col2:
         if st.button("Application Statistics",width="stretch"):
-            col1, col2, col3 = st.columns(3)
-            with col2.spinner("Loading...",show_time=True):
-                time.sleep(1.5)
+            with loading_placeholder:
+                with loading_placeholder.spinner("Loading...",show_time=True):
+                    time.sleep(1.5)
             st.switch_page("pages/3_Application Statistics.py")
         if st.button("CV",width="stretch"):
             st.switch_page("pages/4_CV.py")
