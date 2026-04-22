@@ -74,6 +74,9 @@ def Main_Menu():
             st.switch_page("pages/2_Data Analytics.py")
     with col2:
         if st.button("Application Statistics",width="stretch"):
+            col1, col2, col3 = st.columns(3)
+            with col2.spinner("Loading...",show_time=True):
+                time.sleep(1.5)
             st.switch_page("pages/3_Application Statistics.py")
         if st.button("CV",width="stretch"):
             st.switch_page("pages/4_CV.py")
@@ -82,7 +85,7 @@ def Main_Menu():
 if 'role' not in st.session_state or st.session_state.role is None:
     col1, col2, col3 = st.columns(3)
     with col2.spinner("Loading...",show_time=True):
-        time.sleep(5)
+        time.sleep(3)
     Pop_Up()
 else:
     Main_Menu()

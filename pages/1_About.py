@@ -1,8 +1,13 @@
 import pandas as pd
 import streamlit as st
+import time
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
-st.page_link("Portfolio.py", label="Home")
 
+col1, col2, col3 = st.columns(3)
+with col2.spinner("Loading...",show_time=True):
+    time.sleep(3)
+st.page_link("Portfolio.py", label="Home")
+ 
 st.title("ABOUT",text_alignment="center")
 
 
