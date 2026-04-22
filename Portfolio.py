@@ -82,11 +82,11 @@ def Main_Menu():
 
     col1, col2= st.columns(2)
     if col1.button('About',width="stretch",):
-        st.switch_page('About')
+        st.switch_page('1_About.py')
     if col1.button("Data Analytics",width="stretch"):
-        st.switch_page('Data Analytics')
+        st.switch_page('2_Data Analytics.py')
     if col2.button("Application Statistics",width="stretch"):
-        st.switch_page('Application Statistics')
+        st.switch_page('3_Application Statistics.py')
     col2.button("TBB",width="stretch")
 #        st.switch_page('pages/1_About.py')
 
