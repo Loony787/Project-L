@@ -8,8 +8,8 @@ st.set_page_config(layout="wide",initial_sidebar_state="expanded")
 st.title("Project: L",text_alignment="center")
 st.divider()
 
-col1, col2, col3 = st.columns(3)
-with col2: 
+col1, col2, col3, col4, col5 = st.columns(5)
+with col3: 
     loading_placeholder = st.empty()
 
 credentials = st.secrets["gcp_service_account"]
