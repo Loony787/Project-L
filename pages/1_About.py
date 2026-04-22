@@ -13,10 +13,20 @@ with col3.spinner("Loading...",show_time=True):
 st.markdown("""
     <style>
     .stPageLink a {
-        font-size: 20px;
-        color: white;
-        text-decoration: none;
+        display: block;
+        text-align: center;
+        background-color: grey;
+        color: white !important;
+        font-size: 50px;
         font-weight: bold;
+        padding: 15px;
+        border-radius: 10px;
+        text-decoration: none !important;
+        height: 150px;
+        line-height: 50px;
+    }
+    .stPageLink a:hover {
+        background-color: #555555;
     }
     </style>
 """, unsafe_allow_html=True)
