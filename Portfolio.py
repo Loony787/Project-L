@@ -4,14 +4,6 @@ import gspread
 from datetime import datetime
 import time
 
-#LOAD---------------------------
-
-# if 'starting' not in st.session_state:
-    
-#     st.session_state.starting = True
-# else:
-#     st.session_state.starting = True
-#REST---------------------------
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
 st.title("Project: L",text_alignment="center")
 st.divider()
@@ -23,7 +15,7 @@ sheet = gc.open("Project-L").sheet1
 if 'role' not in st.session_state:
     st.session_state.role = None
     
-#Menu
+#Men------------------------------------------------------------------------------------------------------------------------------
 st.markdown("""
     <style>
     .stButton button {
