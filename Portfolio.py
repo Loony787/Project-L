@@ -81,12 +81,14 @@ def Main_Menu():
   
 
     col1, col2= st.columns(2)
-    with col1:
-        st.page_link("pages/1_About.py",width="stretch")
-        st.page_link("pages/2_Data Analytics.py",width="stretch")
-    with col2:
-        st.page_link("pages/3_Application Statistics.py",width="stretch")
-        st.button("CV",width="stretch")
+    if col1.button('About',width="stretch",):
+        st.switch_page('pages/1_About.py')
+    if col1.page_link("Data Analytics",width="stretch"):
+        st.switch_page('pages/2_Data Analytics.py')
+    if col2.page_link("Application Statistic",width="stretch"):
+        st.switch_page('pages/3_Application Statistic.py')
+    col2.button("TBB",width="stretch")
+#        st.switch_page('pages/1_About.py')
 
 
 if 'role' not in st.session_state or st.session_state.role is None:
