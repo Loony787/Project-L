@@ -42,10 +42,7 @@ def Pop_Up():
 
 
     col1, col2, col3 = st.columns(3)
-    
-    col1.info("⚠️")
     col2.info("CHOOSE AN OPTION TO ENTER! :D")
-    col3.info("⚠️")
 
     recruiter = col1.button("RECRUITER",width="stretch")
     guest = col2.button("GUEST", width="stretch")
@@ -74,7 +71,7 @@ def Pop_Up():
 def Main_Menu():
     st.header("Menu",text_alignment="center")
     st.markdown("Welcome to my page! Here you have a little overview on which pages are available.\nFeel free to discover all of them!")
-    st.warning("Work is currently in progress. Most of the pages have not been filled yet.")
+    st.info("Work is currently in progress. Most of the pages have not been filled yet.")
   
 
     col1, col2= st.columns(2)
