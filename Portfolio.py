@@ -39,7 +39,7 @@ st.markdown("""
 
 
 def Pop_Up():
-
+    col1, col2, col3 = st.columns(3)
     st.info("CHOOSE AN OPTION TO ENTER! :D")
     recruiter = col1.button("RECRUITER",width="stretch")
     guest = col2.button("GUEST", width="stretch")
