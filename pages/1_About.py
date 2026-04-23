@@ -12,6 +12,7 @@ with col3.spinner("Loading...",show_time=True):
 
 st.page_link("Portfolio.py", label="Home")
 st.title("About",text_alignment="center")
+st.divider()
 #Content------------------------------------------------------------------------------------------------
 
 def Content():
