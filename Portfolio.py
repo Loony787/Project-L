@@ -15,7 +15,7 @@ with col3:
 
 credentials = st.secrets["gcp_service_account"]
 gc = gspread.service_account_from_dict(credentials)
-sheet_write = gc.open("Project").sheet1
+sheet_write = gc.open("Project-L").sheet1
 
 if 'role' not in st.session_state:
     st.session_state.role = None
@@ -72,7 +72,7 @@ def Main_Menu():
         sheet_write.append_row(["TEST"])
 
 try:
-    sheet_write.append_row(["TEST", datetime.now().strftime("%Y-%m-%d %H:%M:%S")])
+    sheet_write.update_acell('A1', 'Test')
     st.success("Write successful!")
 except Exception as e:
     st.error(f"Error: {e}")
