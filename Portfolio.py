@@ -35,8 +35,8 @@ st.markdown("""
 #Functions--------------------------------------------------------------------------------------------------------------------------------------
 
 def Pop_Up():
-    
-    col3.info("CHOOSE AN OPTION TO ENTER! :D")
+    col1, col2, col3, col4, col5 = st.columns(5)
+    st.info("CHOOSE AN OPTION TO ENTER! :D")
     recruiter = col2.button("RECRUITER",width="stretch")
     guest = col3.button("GUEST", width="stretch")
     friend = col4.button("FRIEND", width="stretch")
@@ -44,15 +44,12 @@ def Pop_Up():
     if recruiter:
         st.session_state.role = 'RECRUITER'
         sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'RECRUITER'])
-        st.rerun()
     elif guest:
         st.session_state.role = 'GUEST'
         sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'GUEST'])
-        st.rerun()
     elif friend:
         st.session_state.role = 'FRIEND' 
         sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'FRIEND'])
-        st.rerun()
 
 def Main_Menu():
     col1, col2, col3 = st.columns([1,2,1])
