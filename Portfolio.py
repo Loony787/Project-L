@@ -15,7 +15,7 @@ with col3:
 
 credentials = st.secrets["gcp_service_account"]
 gc = gspread.service_account_from_dict(credentials)
-sheet_write = gc.open("Project-L").sheet1
+sheet_write = gc.open("Project").sheet1
 
 if 'role' not in st.session_state:
     st.session_state.role = None
