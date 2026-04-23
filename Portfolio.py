@@ -71,6 +71,11 @@ def Main_Menu():
     if col3.button("Test",width="stretch"):
         sheet_write.append_row(["TEST"])
 
+try:
+    sheet_write.append_row(["TEST", datetime.now().strftime("%Y-%m-%d %H:%M:%S")])
+    st.success("Write successful!")
+except Exception as e:
+    st.error(f"Error: {e}")
 
 
 if 'role' not in st.session_state or st.session_state.role is None:
