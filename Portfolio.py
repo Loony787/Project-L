@@ -4,7 +4,7 @@ import gspread
 from datetime import datetime
 import time
 
-st.set_page_config(layout="wide",initial_sidebar_state="expanded")
+st.set_page_config(layout="centered",initial_sidebar_state="expanded")
 st.title("Project: L",text_alignment="center")
 st.divider()
 
