@@ -17,28 +17,29 @@ st.page_link("Portfolio.py", label="Home")
 st.title("Project: D", text_alignment='center')
 st.header("Data Analytics", text_alignment='center')
 #Visitor Data---------------------------------------------------------------------------------------------------
-def Visitor():
-    credentials = st.secrets["gcp_service_account"]
-    gc = gspread.service_account_from_dict(credentials)
-    sheet_read = gc.open("Project-L").sheet1
+credentials = st.secrets["gcp_service_account"]
+gc = gspread.service_account_from_dict(credentials)
+sheet_read = gc.open("Project-L").sheet1
 
-    data = sheet_read.get_all_records()
-    df = pd.DataFrame(data)
-    df.columns = ["Date", "Type"]
+data = sheet_read.get_all_records()
+df = pd.DataFrame(data)
+df.columns = ["Date", "Type"]
+
+RECRUITER_VALUE = df[df['Type'] == 'RECRUITER'].shape(0)
+GUEST_VALUE = df[df['Type'] == 'GUEST'].shape(0)
+FRIEND_VALUE = df[df['Type'] == 'FRIEND'].shape(0)
+TV_VALUE = RECRUITER_VALUE + GUEST_VALUE + FRIEND_VALUE
+
+RECRUIT_DELTA = f"{round(RECRUITER_VALUE / TV_VALUE * 100, 2)}%"
+GUEST_DELTA = f"{round(GUEST_VALUE / TV_VALUE* 100, 2)}%"
+FRIEND_DELTA = f"{round(FRIEND_VALUE/ TV_VALUE * 100, 2)}%"
+
+def Visitor():
     df['Date'] = pd.to_datetime(df["Date"])
     df_group = df.groupby('Date').size().reset_index(name='Visits')
     df_group['Visits']= df_group['Visits'].cumsum()
     st.line_chart(df_group,x='Date', y='Visits')
-
-    RECRUITER_VALUE = df[df['Type'] == 'RECRUITER'].shape(0)
-    GUEST_VALUE = df[df['Type'] == 'GUEST'].shape(0)
-    FRIEND_VALUE = df[df['Type'] == 'FRIEND'].shape(0)
-    TV_VALUE = RECRUITER_VALUE + GUEST_VALUE + FRIEND_VALUE
-
-    RECRUIT_DELTA = f"{round(RECRUITER_VALUE / TV_VALUE * 100, 2)}%"
-    GUEST_DELTA = f"{round(GUEST_VALUE / TV_VALUE* 100, 2)}%"
-    FRIEND_DELTA = f"{round(FRIEND_VALUE/ TV_VALUE * 100, 2)}%"
-
+    
     col1, col2, col3, col4 = st.columns(4)
     col1.metric(label='Total Visits', value=TV_VALUE,delta='-%',delta_color='violet', delta_arrow='off')
     col2.metric(label='Recruiter Visits', value= RECRUITER_VALUE, delta=RECRUIT_DELTA, delta_color='violet', delta_arrow='off')
