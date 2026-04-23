@@ -35,16 +35,18 @@ GUEST_DELTA = f"{round(GUEST_VALUE / TV_VALUE* 100, 2)}%"
 FRIEND_DELTA = f"{round(FRIEND_VALUE/ TV_VALUE * 100, 2)}%"
 
 def Visitor():
+    col1, col2, col3, col4 = st.columns([1.5, 1, 1, 1])
+    col1.metric(label='Total Visits', value=TV_VALUE,delta='-%',delta_color='violet', delta_arrow='off')
+    col2.metric(label='Recruiter Visits', value= RECRUITER_VALUE, delta=RECRUIT_DELTA, delta_color='violet', delta_arrow='off')
+    col3.metric(label='Guest Visits', value= GUEST_VALUE, delta=GUEST_DELTA, delta_color='violet', delta_arrow='off')
+    col4.metric(label='Friend Visits', value=FRIEND_VALUE, delta=FRIEND_DELTA, delta_color='violet', delta_arrow='off')
+    
     df["Date"] = pd.to_datetime(df["Date"])
     df_group = df.groupby('Date').size().reset_index(name='Visits')
     df_group['Visits']= df_group['Visits'].cumsum()
     st.line_chart(df_group,x='Date', y='Visits')
     
-    col1, col2, col3, col4 = st.columns(4)
-    col1.metric(label='Total Visits', value=TV_VALUE,delta='-%',delta_color='violet', delta_arrow='off')
-    col2.metric(label='Recruiter Visits', value= RECRUITER_VALUE, delta=RECRUIT_DELTA, delta_color='violet', delta_arrow='off')
-    col3.metric(label='GUEST Visits', value= GUEST_VALUE, delta=GUEST_DELTA, delta_color='violet', delta_arrow='off')
-    col4.metric(label='FRIEND Visits', value=FRIEND_VALUE, delta=FRIEND_DELTA, delta_color='violet', delta_arrow='off')
+    
 #Content-----------------------------------------------------------------------------------------------------
 
 tab1, tab2, tab3 = st.tabs(["Visitors", "X", "X"])
