@@ -27,7 +27,7 @@ def Visitor():
     df.columns = ["Date", "Type"]
     st.dataframe(df)
     df_unique = df[['Date', 'Type']].cumsum()
-    st.line_chart(df_unique)
+    st.line_chart(df_unique,x='Date')
 #Content-----------------------------------------------------------------------------------------------------
 
 tab1, tab2, tab3 = st.tabs(["Visitors", "X", "X"])
