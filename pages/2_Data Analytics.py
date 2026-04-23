@@ -27,11 +27,11 @@ def Visitor():
     df.columns = ["Date", "Type"]
     st.dataframe(df)
 #Content-----------------------------------------------------------------------------------------------------
-
+Visitor()
 tab1, tab2, tab3 = st.tabs(["Visitors", "X", "X"])
 
 with tab1:
-    Visitor()
+    st.markdown("Text")
 with tab2:
     st.markdown("Text")
 
