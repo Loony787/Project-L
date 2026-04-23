@@ -25,10 +25,11 @@ def Visitor():
     data = sheet_read.get_all_records()
     df = pd.DataFrame(data)
     df.columns = ["Date", "Type"]
-    st.dataframe(df)
-
-    df_unique = df[['Date', 'Type']].value_counts().reset_index()
-    st.line_chart(df_unique, x='Date',y='count',color='Type')
+#    st.dataframe(df)
+    df['Date'] = pd.to_datetime[df["Date"]]
+    df_group = df.groupby(df["Date"].dt.date).size().reset_index(name='Visits')
+    #df_unique = df[['Date', 'Type']].value_counts().reset_index()
+    st.line_chart(df_group, x='Date',y='Visits')
 #Content-----------------------------------------------------------------------------------------------------
 
 tab1, tab2, tab3 = st.tabs(["Visitors", "X", "X"])
