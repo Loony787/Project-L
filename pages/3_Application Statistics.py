@@ -67,7 +67,7 @@ def Absolute_METRICS():
     col4.metric(label= 'Rejected Applications', value= RA_Value, delta=RA_Delta, delta_color='violet', delta_arrow='off')
     col2.metric(label= 'Interviews', value= INT_Value, delta= INT_Delta, delta_color='violet', delta_arrow='off')
     col3.metric(label= 'Offers', value=OFF_Value, delta=OFF_Delta, delta_color='violet', delta_arrow='off')
-    col4.metric(label= 'No Answer Expected', value= NAE_Value, delta=NAE_Delta, delta_description='*Application was 2 Months ago', delta_color='violet', delta_arrow='off')
+    col4.metric(label= 'No Answer Expected*', value= NAE_Value, delta=NAE_Delta, delta_description='*2 Months ago', delta_color='violet', delta_arrow='off')
 
 #RUN-----------------------------------------------------------------------------------------------------------------
 Start()
