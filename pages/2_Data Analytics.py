@@ -34,7 +34,7 @@ RECRUIT_DELTA = f"{round(RECRUITER_VALUE / TV_VALUE * 100, 2)}%"
 GUEST_DELTA = f"{round(GUEST_VALUE / TV_VALUE* 100, 2)}%"
 FRIEND_DELTA = f"{round(FRIEND_VALUE/ TV_VALUE * 100, 2)}%"
 
-def Visitor():
+def VISITS():
     col1, col2, col3, col4, col5 = st.columns([0.5, 1, 1, 1, 1])
     col2.metric(label='Total Visits', value=TV_VALUE,delta='-%',delta_color='violet', delta_arrow='off')
     col3.metric(label='Recruiter Visits', value= RECRUITER_VALUE, delta=RECRUIT_DELTA, delta_color='violet', delta_arrow='off')
@@ -49,10 +49,10 @@ def Visitor():
     
 #Content-----------------------------------------------------------------------------------------------------
 
-tab1, tab2, tab3 = st.tabs(["Visitors", "X", "X"])
+tab1, tab2, tab3 = st.tabs(["Visits", "X", "X"])
 
 with tab1:
-    Visitor()
+    VISITS()
 with tab2:
     st.markdown("Text")
 
