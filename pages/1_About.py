@@ -11,7 +11,7 @@ with col3.spinner("Loading...",show_time=True):
     time.sleep(1.5)
 with col1:
     st.page_link("Portfolio.py", label="Home")
-    st.page_link("pages/2_Data Analytics.py", label="Data Analytics")
+    #st.page_link("pages/2_Data Analytics.py", label="Data Analytics")
 st.title("About",text_alignment="center")
 st.divider()
 #Content------------------------------------------------------------------------------------------------
