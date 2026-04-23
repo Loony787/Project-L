@@ -43,15 +43,15 @@ def Pop_Up():
     friend = col4.button("FRIEND", width="stretch")
     if recruiter:
         st.session_state.role = 'RECRUITER'
-        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'RECRUITER'])
+        sheet_write.insert_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'RECRUITER'])
         st.rerun()
     elif guest:
         st.session_state.role = 'GUEST'
-        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'GUEST'])
+        sheet_write.insert_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'GUEST'])
         st.rerun()
     elif friend:
         st.session_state.role = 'FRIEND' 
-        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'FRIEND'])
+        sheet_write.insert_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'FRIEND'])
         st.rerun()
 
 def Main_Menu():
@@ -68,15 +68,7 @@ def Main_Menu():
         st.switch_page('pages/2_Data Analytics.py')
     if col3.button("Application Statistics",width="stretch"):
         st.switch_page('pages/3_Application Statistics.py')
-    if col3.button("Test",width="stretch"):
-        sheet_write.append_row(["TEST"])
-
-try:
-    sheet_write.insert_row(['Test', 'TEST'])
-    sheet_write.append_row(['TEST'])
-    st.success("Write successful!")
-except Exception as e:
-    st.error(f"Error: {e}")
+    col3.button("Test",width="stretch")
 
 
 if 'role' not in st.session_state or st.session_state.role is None:
