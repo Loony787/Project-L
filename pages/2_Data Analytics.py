@@ -26,6 +26,9 @@ def Visitor():
     df = pd.DataFrame(data)
     df.columns = ["Date", "Type"]
     st.dataframe(df)
+
+    df_unique = df[['Date', 'Type']].value_counts().reset_index()
+    st.line_chart(df_unique, x='Date',y='count',color='Type')
 #Content-----------------------------------------------------------------------------------------------------
 
 tab1, tab2, tab3 = st.tabs(["Visitors", "X", "X"])
