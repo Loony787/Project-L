@@ -29,12 +29,26 @@ def Visitor():
     df_group = df.groupby('Date').size().reset_index(name='Visits')
     df_group['Visits']= df_group['Visits'].cumsum()
     st.line_chart(df_group,x='Date', y='Visits')
+
+    RECRUITER_VALUE = df[df['Type'] == 'RECRUITER'].shape(0)
+    GUEST_VALUE = df[df['Type'] == 'GUEST'].shape(0)
+    FRIEND_VALUE = df[df['Type'] == 'FRIEND'].shape(0)
+    TV_VALUE = RECRUITER_VALUE + GUEST_VALUE + FRIEND_VALUE
+
+    RECRUIT_DELTA = f"{round(RECRUITER_VALUE / TV_VALUE * 100, 2)}%"
+    GUEST_DELTA = f"{round(GUEST_VALUE / TV_VALUE* 100, 2)}%"
+    FRIEND_DELTA = f"{round(FRIEND_VALUE/ TV_VALUE * 100, 2)}%"
+
+    col1, col2, col3, col4 = st.columns(4)
+    col1.metric(label='Total Visits', value=TV_VALUE,delta='-%',delta_color='violet', delta_arrow='off')
+    col2.metric(label='Recruiter Visits', value= RECRUITER_VALUE, delta=RECRUIT_DELTA, delta_color='violet', delta_arrow='off')
+    col3.metric(label='GUEST Visits', value= GUEST_VALUE, delta=GUEST_DELTA, delta_color='violet', delta_arrow='off')
+    col4.metric(label='FRIEND Visits', value=FRIEND_VALUE, delta=FRIEND_DELTA, delta_color='violet', delta_arrow='off')
 #Content-----------------------------------------------------------------------------------------------------
 
 tab1, tab2, tab3 = st.tabs(["Visitors", "X", "X"])
 
 with tab1:
-    st.markdown("Text")
     Visitor()
 with tab2:
     st.markdown("Text")
