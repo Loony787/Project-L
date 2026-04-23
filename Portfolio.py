@@ -40,7 +40,8 @@ def Pop_Up():
     recruiter = col2.button("RECRUITER",width="stretch")
     guest = col3.button("GUEST", width="stretch")
     friend = col4.button("FRIEND", width="stretch")
-
+    if st.button("TEST WRITE"):
+        sheet_write.append_row(["test"])
     if recruiter:
         st.session_state.role = 'RECRUITER'
         sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'RECRUITER'])
@@ -68,6 +69,7 @@ def Main_Menu():
         st.switch_page('pages/3_Application Statistics.py')
     col3.button("TBB",width="stretch")
 #        st.switch_page('pages/1_About.py')
+
 
 
 if 'role' not in st.session_state or st.session_state.role is None:
