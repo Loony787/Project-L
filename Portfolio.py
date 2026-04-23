@@ -58,9 +58,9 @@ def Pop_Up():
 
 
 def Main_Menu():
-    st.header("Menu",text_alignment="center")
-    st.markdown("Welcome to my page! Here you have a little overview on which pages are available.\nFeel free to discover all of them!",text_alignment='center')
     col1, col2, col3 = st.columns([1,2,1])
+    col2.header("Menu",text_alignment="center")
+    col2.markdown("Welcome to my page! Here you have a little overview on which pages are available.\nFeel free to discover all of them!",text_alignment='center')
     col2.info('Work is currently in progress. Most of the pages are not finished yet.')
   
 
