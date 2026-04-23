@@ -26,7 +26,7 @@ def Visitor():
     data = sheet_read.get_all_records()
     df = pd.DataFrame(data)
     df.columns = ["Date", "Type"]
-    st.write(df.columns)
+    st.dataframe(df)
 #Content-----------------------------------------------------------------------------------------------------
 
 tab1, tab2, tab3 = st.tabs(["Visitors", "X", "X"])
