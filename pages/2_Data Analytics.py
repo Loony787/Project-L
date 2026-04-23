@@ -26,7 +26,6 @@ def Visitor():
     df = pd.DataFrame(data)
     df.columns = ["Date", "Type"]
     df['Date'] = pd.to_datetime(df["Date"])
-    st.dataframe(df)
     df_group = df.groupby('Date').size().reset_index(name='Visits')
     df_group['Visits']= df_group['Visits'].cumsum()
     st.line_chart(df_group,x='Date', y='Visits')
