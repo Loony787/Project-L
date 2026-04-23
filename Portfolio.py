@@ -41,12 +41,15 @@ def Pop_Up():
     friend = col4.button("FRIEND", width="stretch")
     if recruiter:
         st.session_state.role = 'RECRUITER'
+        st.rerun()
         sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'RECRUITER'])
     elif guest:
         st.session_state.role = 'GUEST'
+        st.rerun()
         sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'GUEST'])
     elif friend:
         st.session_state.role = 'FRIEND' 
+        st.rerun()
         sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'FRIEND'])
 
 def Main_Menu():
@@ -76,5 +79,4 @@ if 'role' not in st.session_state or st.session_state.role is None:
     Pop_Up()
 else:
     Main_Menu()
-    st.write(credentials)
     
