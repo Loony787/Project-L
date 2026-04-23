@@ -24,8 +24,9 @@ def Visitor():
     sheet_read = gc.open("Project-L").sheet1
 
     data = sheet_read.get_all_records()
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(data,index='')
     df.columns = ["Date", "Type"]
+    df.index = range(1, len(df)+1)
     st.dataframe(df)
 #Content-----------------------------------------------------------------------------------------------------
 
