@@ -26,7 +26,7 @@ def Visitor():
     df = pd.DataFrame(data)
     df.columns = ["Date", "Type"]
     st.dataframe(df)
-    df_unique = df[['Date', 'Type']].value_counts().reset_index()
+    df_unique = df[['Date', 'Type']].count().reset_index()
     st.line_chart(df_unique, x='Date',y='count')
 #Content-----------------------------------------------------------------------------------------------------
 
