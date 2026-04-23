@@ -25,10 +25,8 @@ def Visitor():
     data = sheet_read.get_all_records()
     df = pd.DataFrame(data)
     df.columns = ["Date", "Type"]
-#    st.dataframe(df)
-    df['Date'] = df["Date"].dt.strftime('%d-%m-%y')
+    st.dataframe(df)
     #df_group = df.groupby(df["Date"].dt.date).size().reset_index(name='Visits')
-    st.write(df["Date"])
     #df_unique = df[['Date', 'Type']].value_counts().reset_index()
     #st.line_chart(df_group, x='Date',y='Visits')
 #Content-----------------------------------------------------------------------------------------------------
