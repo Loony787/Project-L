@@ -20,7 +20,8 @@ def Content():
         st.markdown("This website is a personal project. " \
                     "Its primary purpose was to build a small programming project, " \
                     "while also providing a way to showcase my skills to potential recruiters. " \
-                    "I intentionally chose a project which I would actively use myself, rather than something purely technical like a to-do list.")
+                    "I intentionally chose a project which I would actively use myself, rather than something purely technical like a to-do list." \
+                    "For this project I decided to use Streamlit as the 'framework'. It is a Python-based framework, quick to set-up and great for data-driven apps, though it comes with some limitations for design flexibility.")
 
     with col2.expander("What does the roadmap look like?",expanded=True):
         st.markdown("Once the core functionality is stable, I plan to analyze datasets that I find interesting, relevant and / or funny. " \
