@@ -10,8 +10,8 @@ col1, col2, col3, col4, col5 = st.columns(5)
 with col3.spinner("Loading...",show_time=True):
     time.sleep(1.5)
 
-st.page_link("Portfolio.py", label="Home")
-st.page_link("pages/2_Data Analytics.py", label="Data Analytics")
+col1.page_link("Portfolio.py", label="Home")
+col2.page_link("pages/2_Data Analytics.py", label="Data Analytics")
 st.title("About",text_alignment="center")
 st.divider()
 #Content------------------------------------------------------------------------------------------------
