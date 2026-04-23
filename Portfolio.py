@@ -4,7 +4,7 @@ import gspread
 from datetime import datetime
 import time
 
-st.set_page_config(layout="centered",initial_sidebar_state="expanded")
+st.set_page_config(layout="wide",initial_sidebar_state="expanded")
 st.title("Project: L",text_alignment="center")
 st.divider()
 
@@ -55,10 +55,10 @@ def Pop_Up():
     
     st.info("CHOOSE AN OPTION TO ENTER! :D")
 
-    col1, col2, col3 = st.columns(3)
-    recruiter = col1.button("RECRUITER",width="stretch")
-    guest = col2.button("GUEST", width="stretch")
-    friend = col3.button("FRIEND", width="stretch")
+    col1, col2, col3, col4, col5 = st.columns(5)
+    recruiter = col2.button("RECRUITER",width="stretch")
+    guest = col3.button("GUEST", width="stretch")
+    friend = col4.button("FRIEND", width="stretch")
 
     if recruiter:
         st.session_state.role = 'RECRUITER'
@@ -80,14 +80,14 @@ def Main_Menu():
     st.info('Work is currently in progress. Most of the pages are not finished yet.')
   
 
-    col1, col2= st.columns(2)
-    if col1.button('About',width="stretch",):
+    col1, col2, col3, col4= st.columns(4)
+    if col2.button('About',width="stretch",):
         st.switch_page('pages/1_About.py')
-    if col1.button("Data Analytics",width="stretch"):
+    if col2.button("Data Analytics",width="stretch"):
         st.switch_page('pages/2_Data Analytics.py')
-    if col2.button("Application Statistics",width="stretch"):
+    if col3.button("Application Statistics",width="stretch"):
         st.switch_page('pages/3_Application Statistics.py')
-    col2.button("TBB",width="stretch")
+    col3.button("TBB",width="stretch")
 #        st.switch_page('pages/1_About.py')
 
 
