@@ -27,7 +27,7 @@ def Visitor():
     df.columns = ["Date", "Type"]
     st.dataframe(df)
     df_group = df.groupby('Date').size().reset_index(name='Visits')
-    df_group= df_group['Visits'].cumsum()
+    df_group['Visits']= df_group['Visits'].cumsum()
     st.line_chart(df_group,x='Date', y='Visits')
 #Content-----------------------------------------------------------------------------------------------------
 
