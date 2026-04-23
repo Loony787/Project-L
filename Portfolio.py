@@ -45,17 +45,14 @@ def Pop_Up():
 
     if recruiter:
         st.session_state.role = 'RECRUITER'
-        st.rerun()
     elif guest:
         st.session_state.role = 'GUEST'
-        st.rerun()
     elif friend:
         st.session_state.role = 'FRIEND'
-        st.rerun()
 
     if st.session_state.role == None: 
         sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),st.session_state.role])
-
+        st.rerun()
 
 def Main_Menu():
     col1, col2, col3 = st.columns([1,2,1])
