@@ -26,25 +26,7 @@ st.markdown("""
         font-size: 50px;
         height: 150px;
         color: white;
-        background-color: grey;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-    <style>
-    .stPageLink a {
-        background-color: gray;
-        font-size: 50px;
-        font-weight: bold;
-        padding: 15px;
-        border-radius: 10px;
-        text-decoration: none !important;
-        height: 150px;
-        line-height: 150px;
-    }
-    .stPageLink a:hover {
-        background-color: #555555;
+        background-color: #d0d0d0;
     }
     </style>
 """, unsafe_allow_html=True)
