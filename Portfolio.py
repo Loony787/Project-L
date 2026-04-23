@@ -51,7 +51,7 @@ def Pop_Up():
         st.rerun()
     elif friend:
         st.session_state.role = 'FRIEND' 
-        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'FRIEND'])
+        sheet_write.insert_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'FRIEND'])
         st.rerun()
 
 def Main_Menu():

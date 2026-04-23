@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import gspread
 import time 
 
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
@@ -16,13 +17,24 @@ with col3.spinner("Loading...",show_time=True):
 st.page_link("Portfolio.py", label="Home")
 st.title("Project: D", text_alignment='center')
 st.header("Data Analytics", text_alignment='center')
+#Visitor Data---------------------------------------------------------------------------------------------------
+credentials = st.secrets["gcp_service_account"]
+gc = gspread.service_account_from_dict(credentials)
+sheet_read = gc.open("Project-L").sheet1
+
+data = sheet_read.get_all_records()
+df = pd.DataFrame(data)
+df = df.iloc[:,0].str.split(";", expand=True)
+df.columns = ["Date", "Type"]
+df['Date'] = pd.to_datetime(df['Date'])
+df_dategroup = df.groupby(df["Date"].dt.date).size().reset_index(name='Visits')
+st.line_chart(df_dategroup, x='Date', y='Visits')
 #Content-----------------------------------------------------------------------------------------------------
 
-tab1, tab2, tab3 = st.tabs(["X", "X", "X"])
+tab1, tab2, tab3 = st.tabs(["Visitors", "X", "X"])
 
 with tab1:
-    st.markdown("Text")
-
+    st.markdown('x')
 with tab2:
     st.markdown("Text")
 
