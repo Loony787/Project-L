@@ -25,9 +25,9 @@ data = sheet_read.get_all_records()
 df = pd.DataFrame(data)
 df.columns = ["Date", "Type"]
 
-RECRUITER_VALUE = df[df['Type'] == 'RECRUITER'].shape(0)
-GUEST_VALUE = df[df['Type'] == 'GUEST'].shape(0)
-FRIEND_VALUE = df[df['Type'] == 'FRIEND'].shape(0)
+RECRUITER_VALUE = df[df['Type'] == 'RECRUITER'].shape[0]
+GUEST_VALUE = df[df['Type'] == 'GUEST'].shape[0]
+FRIEND_VALUE = df[df['Type'] == 'FRIEND'].shape[0]
 TV_VALUE = RECRUITER_VALUE + GUEST_VALUE + FRIEND_VALUE
 
 RECRUIT_DELTA = f"{round(RECRUITER_VALUE / TV_VALUE * 100, 2)}%"
