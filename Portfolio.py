@@ -68,8 +68,8 @@ def Main_Menu():
         st.switch_page('pages/2_Data Analytics.py')
     if col3.button("Application Statistics",width="stretch"):
         st.switch_page('pages/3_Application Statistics.py')
-    col3.button("TBB",width="stretch")
-#        st.switch_page('pages/1_About.py')
+    if col3.button("Test",width="stretch"):
+        sheet_write.append_row(["TEST"])
 
 
 
