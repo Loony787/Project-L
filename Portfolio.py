@@ -72,7 +72,7 @@ def Main_Menu():
         sheet_write.append_row(["TEST"])
 
 try:
-    sheet_write.update_acell('A1','ROLE')
+    sheet_write.insert_row(['Test', 'TEST'])
     sheet_write.append_row(['TEST'])
     st.success("Write successful!")
 except Exception as e:
