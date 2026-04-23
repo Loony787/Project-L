@@ -39,7 +39,7 @@ df['Status']= df['Status'].replace({
 month_order = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 def BarChart():
-    col1, col2, col3 = st.columns([2,3,1])
+    col1, col2, col3 = st.columns([0.5,3,1])
     df_Unique = df[["Status","Application Month"]].value_counts().reset_index()
     #st.dataframe(df_Unique)
     df_Unique["Application Month"] = pd.Categorical(df_Unique["Application Month"], categories= month_order, ordered=True)
@@ -61,13 +61,13 @@ INT_Delta = f"{round(INT_Value / TA_Value * 100, 2)}%"
 OFF_Delta = f"{round(OFF_Value / TA_Value * 100, 2)}%"
 
 def Absolute_METRICS():
-    col1, col2, col3, col4, col5, col6= st.columns(6)
-    col3.metric(label= 'Total Applications', value= TA_Value, delta="-%", delta_color='violet', delta_arrow='off')
-    col4.metric(label= 'Open Applications', value= OA_Value, delta=OA_Delta, delta_color='violet', delta_arrow='off')
-    col5.metric(label= 'Rejected Applications', value= RA_Value, delta=RA_Delta, delta_color='violet', delta_arrow='off')
-    col3.metric(label= 'Interviews', value= INT_Value, delta= INT_Delta, delta_color='violet', delta_arrow='off')
-    col4.metric(label= 'Offers', value=OFF_Value, delta=OFF_Delta, delta_color='violet', delta_arrow='off')
-    col5.metric(label= 'No Answer Expected', value= NAE_Value, delta=NAE_Delta, delta_description='*Application was 2 Months ago', delta_color='violet', delta_arrow='off')
+    col1, col2, col3, col4, col5= st.columns(5)
+    col2.metric(label= 'Total Applications', value= TA_Value, delta="-%", delta_color='violet', delta_arrow='off')
+    col3.metric(label= 'Open Applications', value= OA_Value, delta=OA_Delta, delta_color='violet', delta_arrow='off')
+    col4.metric(label= 'Rejected Applications', value= RA_Value, delta=RA_Delta, delta_color='violet', delta_arrow='off')
+    col2.metric(label= 'Interviews', value= INT_Value, delta= INT_Delta, delta_color='violet', delta_arrow='off')
+    col3.metric(label= 'Offers', value=OFF_Value, delta=OFF_Delta, delta_color='violet', delta_arrow='off')
+    col4.metric(label= 'No Answer Expected', value= NAE_Value, delta=NAE_Delta, delta_description='*Application was 2 Months ago', delta_color='violet', delta_arrow='off')
 
 #RUN-----------------------------------------------------------------------------------------------------------------
 Start()
