@@ -25,9 +25,9 @@ sheet_read = gc.open("Project-L").sheet1
 data = sheet_read.get_all_records()
 df = pd.DataFrame(data)
 df.columns = ["Date", "Type"]
-df['Date'] = pd.to_datetime(df['Date'])
-df_dategroup = df.groupby(df["Date"].dt.date).size().reset_index(name='Visits')
-st.line_chart(df_dategroup, x='Date', y='Visits')
+# df['Date'] = pd.to_datetime(df['Date'])
+# df_dategroup = df.groupby(df["Date"].dt.date).size().reset_index(name='Visits')
+st.line_chart(df, x='Date', y='Visits')
 #Content-----------------------------------------------------------------------------------------------------
 
 tab1, tab2, tab3 = st.tabs(["Visitors", "X", "X"])
