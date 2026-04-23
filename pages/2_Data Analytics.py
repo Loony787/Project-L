@@ -23,15 +23,16 @@ def Visitor():
     sheet_read = gc.open("Project-L").sheet1
 
     data = sheet_read.get_all_records()
-    df = pd.DataFrame(data,index='')
+    df = pd.DataFrame(data)
     df.columns = ["Date", "Type"]
     st.dataframe(df)
 #Content-----------------------------------------------------------------------------------------------------
-Visitor()
+
 tab1, tab2, tab3 = st.tabs(["Visitors", "X", "X"])
 
 with tab1:
     st.markdown("Text")
+    Visitor()
 with tab2:
     st.markdown("Text")
 
