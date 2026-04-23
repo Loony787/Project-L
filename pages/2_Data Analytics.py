@@ -26,7 +26,7 @@ def Visitor():
     df = pd.DataFrame(data)
     df.columns = ["Date", "Type"]
 #    st.dataframe(df)
-    df['Date'] = pd.to_datetime(df["Date"], format='%d-%m-%Y')
+    df['Date'] = df["Date"].dt.strftime('%d-%m-%y')
     #df_group = df.groupby(df["Date"].dt.date).size().reset_index(name='Visits')
     st.write(df["Date"])
     #df_unique = df[['Date', 'Type']].value_counts().reset_index()
