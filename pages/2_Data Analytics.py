@@ -26,10 +26,11 @@ def Visitor():
     df = pd.DataFrame(data)
     df.columns = ["Date", "Type"]
 #    st.dataframe(df)
-    df['Date'] = pd.to_datetime[df["Date"]]
-    df_group = df.groupby(df["Date"].dt.date).size().reset_index(name='Visits')
+    df['Date'] = pd.to_datetime(df["Date"], format='%d-%m-%Y')
+    #df_group = df.groupby(df["Date"].dt.date).size().reset_index(name='Visits')
+    st.write(df["Date"])
     #df_unique = df[['Date', 'Type']].value_counts().reset_index()
-    st.line_chart(df_group, x='Date',y='Visits')
+    #st.line_chart(df_group, x='Date',y='Visits')
 #Content-----------------------------------------------------------------------------------------------------
 
 tab1, tab2, tab3 = st.tabs(["Visitors", "X", "X"])
