@@ -31,7 +31,6 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
-
 #Functions--------------------------------------------------------------------------------------------------------------------------------------
 
 def Pop_Up():
@@ -40,8 +39,6 @@ def Pop_Up():
     recruiter = col2.button("RECRUITER",width="stretch")
     guest = col3.button("GUEST", width="stretch")
     friend = col4.button("FRIEND", width="stretch")
-    if st.button("TEST WRITE"):
-        sheet_write.append_row(["test"])
     if recruiter:
         st.session_state.role = 'RECRUITER'
         sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'RECRUITER'])
@@ -79,4 +76,5 @@ if 'role' not in st.session_state or st.session_state.role is None:
     Pop_Up()
 else:
     Main_Menu()
+    st.write(credentials)
     
