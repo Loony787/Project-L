@@ -26,8 +26,9 @@ def Visitor():
     df = pd.DataFrame(data)
     df.columns = ["Date", "Type"]
     st.dataframe(df)
-    df_unique = df[['Date', 'Type']].cumsum()
-    st.line_chart(df_unique,x='Date', y='count')
+    df_group = df.groupby('Date').size().reset_index(name='Visits')
+    df_group= df_group[['Visits']].cumsum()
+    st.line_chart(df_group,x='Date', y='Visits')
 #Content-----------------------------------------------------------------------------------------------------
 
 tab1, tab2, tab3 = st.tabs(["Visitors", "X", "X"])
