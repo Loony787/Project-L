@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import gspread
+import numpy as np
 import time 
 
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
@@ -26,7 +27,7 @@ def Visitor():
     data = sheet_read.get_all_records()
     df = pd.DataFrame(data,index='')
     df.columns = ["Date", "Type"]
-    df.index = range(1, len(df)+1)
+    df.index = np.arrange(1, len(df)+1)
     st.dataframe(df)
 #Content-----------------------------------------------------------------------------------------------------
 
