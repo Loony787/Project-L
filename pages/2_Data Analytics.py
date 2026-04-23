@@ -1,7 +1,6 @@
 import pandas as pd
 import streamlit as st
 import gspread
-import numpy as np
 import time 
 
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
@@ -9,7 +8,6 @@ def Start():
     if st.session_state.get('role') is None:
         st.switch_page("Portfolio.py")
 Start()
-
 
 col1, col2, col3, col4, col5 = st.columns(5)
 with col3.spinner("Loading...",show_time=True):
@@ -27,14 +25,13 @@ def Visitor():
     data = sheet_read.get_all_records()
     df = pd.DataFrame(data,index='')
     df.columns = ["Date", "Type"]
-    df.index = np.arrange(1, len(df)+1)
     st.dataframe(df)
 #Content-----------------------------------------------------------------------------------------------------
-
+Visitor()
 tab1, tab2, tab3 = st.tabs(["Visitors", "X", "X"])
 
 with tab1:
-    Visitor()
+
 with tab2:
     st.markdown("Text")
 
