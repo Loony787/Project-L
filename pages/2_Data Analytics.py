@@ -35,7 +35,7 @@ GUEST_DELTA = f"{round(GUEST_VALUE / TV_VALUE* 100, 2)}%"
 FRIEND_DELTA = f"{round(FRIEND_VALUE/ TV_VALUE * 100, 2)}%"
 
 def Visitor():
-    df['Date'] = pd.to_datetime(df["Date"])
+    df["Date"] = pd.to_datetime(df["Date"])
     df_group = df.groupby('Date').size().reset_index(name='Visits')
     df_group['Visits']= df_group['Visits'].cumsum()
     st.line_chart(df_group,x='Date', y='Visits')
