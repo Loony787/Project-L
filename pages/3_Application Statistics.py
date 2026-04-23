@@ -39,7 +39,7 @@ df['Status']= df['Status'].replace({
 month_order = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 def BarChart():
-    col1, col2, col3 = st.columns([1.5,3,1])
+    col1, col2, col3 = st.columns([1,3,1])
     df_Unique = df[["Status","Application Month"]].value_counts().reset_index()
     #st.dataframe(df_Unique)
     df_Unique["Application Month"] = pd.Categorical(df_Unique["Application Month"], categories= month_order, ordered=True)
