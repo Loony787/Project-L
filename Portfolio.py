@@ -53,7 +53,7 @@ def Pop_Up():
         st.session_state.role = 'FRIEND'
         st.rerun()
 
-    if st.session_state.role != None: 
+    if st.session_state.role == None: 
         sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),st.session_state.role])
 
 
