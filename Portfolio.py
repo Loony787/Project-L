@@ -35,8 +35,8 @@ st.markdown("""
 #Functions--------------------------------------------------------------------------------------------------------------------------------------
 
 def Pop_Up():
-    col1, col2, col3, col4, col5 = st.columns(5)
     st.info("CHOOSE AN OPTION TO ENTER! :D")
+    col1, col2, col3, col4, col5 = st.columns(5)
     recruiter = col2.button("RECRUITER",width="stretch")
     guest = col3.button("GUEST", width="stretch")
     friend = col4.button("FRIEND", width="stretch")
@@ -61,6 +61,7 @@ def Main_Menu():
     col1, col2, col3, col4= st.columns(4)
     if col2.button('About',width="stretch",):
         st.switch_page('pages/1_About.py')
+        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'ABOUT'])
     if col2.button("Data Analytics",width="stretch"):
         st.switch_page('pages/2_Data Analytics.py')
     if col3.button("Application Statistics",width="stretch"):
