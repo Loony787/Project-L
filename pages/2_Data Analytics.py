@@ -25,6 +25,7 @@ def Visitor():
     data = sheet_read.get_all_records()
     df = pd.DataFrame(data)
     df.columns = ["Date", "Type"]
+    df['Date'] = pd.to_datetime(df["Date"])
     st.dataframe(df)
     df_group = df.groupby('Date').size().reset_index(name='Visits')
     df_group['Visits']= df_group['Visits'].cumsum()
