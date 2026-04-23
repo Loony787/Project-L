@@ -20,11 +20,11 @@ st.header("Job Application Statistics", text_alignment='center')
 
 credentials = st.secrets["gcp_service_account"]
 gc = gspread.service_account_from_dict(credentials)
-sheet = gc.open("Project-J").sheet1
+sheet_read = gc.open("Project-J").sheet1
 
 #Basic preparations--------------------------------------------------------------------------------------------------------------
 
-data = sheet.get_all_records()
+data = sheet_read.get_all_records()
 df = pd.DataFrame(data)
 df = df.iloc[:,0].str.split(";", expand=True)
 df.columns = ["Company", "Status", "Rating", "Location", "Application Month", "IDC1", "IDC2", "IDC3", "IDC4", "IDC5", "IDC6"]

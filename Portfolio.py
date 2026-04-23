@@ -14,7 +14,7 @@ with col3:
 
 credentials = st.secrets["gcp_service_account"]
 gc = gspread.service_account_from_dict(credentials)
-sheet = gc.open("Project-L").sheet1
+sheet_write = gc.open("Project-L").sheet1
 
 if 'role' not in st.session_state:
     st.session_state.role = None
@@ -36,22 +36,22 @@ st.markdown("""
 
 def Pop_Up():
     
-    st.info("CHOOSE AN OPTION TO ENTER! :D")
+    col3.info("CHOOSE AN OPTION TO ENTER! :D")
     recruiter = col2.button("RECRUITER",width="stretch")
     guest = col3.button("GUEST", width="stretch")
     friend = col4.button("FRIEND", width="stretch")
 
     if recruiter:
         st.session_state.role = 'RECRUITER'
-        sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'RECRUITER'])
+        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'RECRUITER'])
         st.rerun()
     elif guest:
         st.session_state.role = 'GUEST'
-        sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'GUEST'])
+        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'GUEST'])
         st.rerun()
     elif friend:
         st.session_state.role = 'FRIEND' 
-        sheet.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'FRIEND'])
+        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'FRIEND'])
         st.rerun()
 
 def Main_Menu():
