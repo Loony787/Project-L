@@ -6,6 +6,7 @@ import time
 
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
 st.title("Project: L",text_alignment="center")
+st.header("Menu", text_alignment='center')
 st.divider()
 
 col1, col2, col3, col4, col5 = st.columns(5)
@@ -41,19 +42,18 @@ def Pop_Up():
     friend = col4.button("FRIEND", width="stretch")
     if recruiter:
         st.session_state.role = 'RECRUITER'
-        st.rerun()
         sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'RECRUITER'])
+        st.rerun()
     elif guest:
         st.session_state.role = 'GUEST'
-        st.rerun()
         sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'GUEST'])
+        st.rerun()
     elif friend:
         st.session_state.role = 'FRIEND' 
-        st.rerun()
         sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'FRIEND'])
+        st.rerun()
 
 def Main_Menu():
-    st.header("Menu",text_alignment="center")
     col1, col2, col3 = st.columns([1,2,1])
     col2.markdown("Welcome to my page! Here you have a little overview on which pages are available.\nFeel free to discover all of them!",text_alignment='center')
     col2.info('Work is currently in progress. Most of the pages are not finished yet.')
