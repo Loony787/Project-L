@@ -2,4 +2,4 @@ streamlit
 Pandas
 gspread
 time
-plotly
+plotly.express
