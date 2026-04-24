@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import gspread
-from datetime import datetime
+from datetime import datetime, timedelta
 import time
 
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
@@ -48,7 +48,7 @@ def Pop_Up():
     elif friend:
         st.session_state.role = 'FRIEND' 
     if st.session_state.role != None:
-        sheet_write.append_row([datetime.now().strftime("%d.%m.%y"),st.session_state.role,datetime.now().strftime("%H:%M:%S")])
+        sheet_write.append_row([datetime.now().strftime("%d.%m.%y"),st.session_state.role,datetime.now()+ timedelta(hours=2).strftime("%H:%M:%S")])
         st.rerun()
 
 
