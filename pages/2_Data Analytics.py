@@ -23,7 +23,7 @@ sheet_read = gc.open("Project-L").sheet1
 
 data = sheet_read.get_all_records()
 df = pd.DataFrame(data)
-df.columns = ["Date", "Type"]
+df.columns = ["Date", "Type", "Time"]
 
 RECRUITER_VALUE = df[df['Type'] == 'RECRUITER'].shape[0]
 GUEST_VALUE = df[df['Type'] == 'GUEST'].shape[0]
