@@ -1,5 +1,4 @@
 streamlit
-Pandas
+pandas
 gspread
-time
-plotly.express
+plotly
