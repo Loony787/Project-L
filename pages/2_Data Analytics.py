@@ -44,11 +44,9 @@ def VISITS():
     df['date']= pd.to_datetime(df["Date"], format="%d.%m.%y")
     df_sort = df.sort_values(by='Date')
     st.dataframe(df_sort)
-    df_group = df_sort.groupby('Date').size().reset_index(name='Visits')
+    df_group = df_sort.groupby('date').size().reset_index(name='Visits')
     df_group['Visits']= df_group['Visits'].cumsum()
-
-
-#    st.line_chart(df_group,x='Date', y='Visits')
+    st.line_chart(df_group,x='date', y='Visits')
     
     
 #Content-----------------------------------------------------------------------------------------------------
