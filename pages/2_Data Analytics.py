@@ -42,7 +42,7 @@ def VISITS():
     col5.metric(label='Friend Visits', value=FRIEND_VALUE, delta=FRIEND_DELTA, delta_color='violet', delta_arrow='off')
     
     df['date']= pd.to_datetime(df["Date"], format="%d.%m.%y")
-    df_sort = df.sort_values('Date')
+    df_sort = df.sort_values(by='Date')
     df_group = df_sort.groupby('Date').size().reset_index(name='Visits')
     df_group['Visits']= df_group['Visits'].cumsum()
     st.line_chart(df_group,x='Date', y='Visits')
