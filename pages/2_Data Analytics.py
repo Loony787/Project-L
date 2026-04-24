@@ -53,6 +53,7 @@ tab1, tab2, tab3 = st.tabs(["Visits", "X", "X"])
 
 with tab1:
     VISITS()
+    #Reset button for charts?!
 with tab2:
     st.markdown("Text")
 
