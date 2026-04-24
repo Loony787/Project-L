@@ -43,17 +43,12 @@ def Pop_Up():
     friend = col4.button("FRIEND", width="stretch")
     if recruiter:
         st.session_state.role = 'RECRUITER'
-        #     sheet_write.append_row([datetime.now().strftime("%Y-%m-%d"),'RECRUITER',datetime.now().strftime("%H:%M:%S")])
- #       st.rerun()
     elif guest:
         st.session_state.role = 'GUEST'
- #      sheet_write.append_row([datetime.now().strftime("%Y-%m-%d"),'GUEST',datetime.now().strftime("%H:%M:%S")])
-#        st.rerun()
     elif friend:
         st.session_state.role = 'FRIEND' 
-#       sheet_write.append_row([datetime.now().strftime("%Y-%m-%d"),'FRIEND',datetime.now().strftime("%H:%M:%S")])
     if st.session_state.role != None:
-        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d"),'role',datetime.now().strftime("%H:%M:%S")])
+        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d"),st.session_state.role,datetime.now().strftime("%H:%M:%S")])
         st.rerun()
 
 
