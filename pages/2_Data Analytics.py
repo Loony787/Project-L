@@ -45,6 +45,7 @@ def VISITS():
     df_sort = df.sort_values(by='Date')
     st.dataframe(df_sort)
     df_group = df_sort.groupby('Date').size().reset_index(name='Visits')
+    st.dataframe(df_group)
     df_group['Visits']= df_group['Visits'].cumsum()
     st.line_chart(df_group,x='Date', y='Visits')
     
