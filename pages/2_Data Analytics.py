@@ -45,7 +45,7 @@ def VISITS():
     df_sort = df.sort_values(by='Date')
     st.dataframe(df_sort)
     df_group = df_sort.groupby('Date').size().reset_index(name='Visits')
-    df_group['Date']= pd.to_datetime(df["Date"], format="%d.%m.%y")
+    df_group['Date']= pd.to_datetime(df_group["Date"], format="%d.%m.%y")
     st.dataframe(df_group)
 
     df_group['Visits']= df_group['Visits'].cumsum()
