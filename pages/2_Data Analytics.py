@@ -41,7 +41,7 @@ def VISITS():
     col4.metric(label='Guest Visits', value= GUEST_VALUE, delta=GUEST_DELTA, delta_color='violet', delta_arrow='off')
     col5.metric(label='Friend Visits', value=FRIEND_VALUE, delta=FRIEND_DELTA, delta_color='violet', delta_arrow='off')
     
-    df['date']= pd.to_datetime(df["Date"], format="%d.%m.%y")
+    df['date']= pd.to_datetime(df["Date"], format="'%d.%m.%y")
     df_sort = df.sort_values(by='Date')
     df_group = df_sort.groupby('Date').size().reset_index(name='Visits')
     df_group['Visits']= df_group['Visits'].cumsum()
