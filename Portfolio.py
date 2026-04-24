@@ -43,16 +43,19 @@ def Pop_Up():
     friend = col4.button("FRIEND", width="stretch")
     if recruiter:
         st.session_state.role = 'RECRUITER'
-        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'RECRUITER'])
+        #     sheet_write.append_row([datetime.now().strftime("%Y-%m-%d"),'RECRUITER',datetime.now().strftime("%H:%M:%S")])
         st.rerun()
     elif guest:
         st.session_state.role = 'GUEST'
-        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'GUEST'])
+ #      sheet_write.append_row([datetime.now().strftime("%Y-%m-%d"),'GUEST',datetime.now().strftime("%H:%M:%S")])
         st.rerun()
     elif friend:
         st.session_state.role = 'FRIEND' 
-        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d %H:%M:%S"),'FRIEND'])
+#        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d"),'FRIEND',datetime.now().strftime("%H:%M:%S")])
         st.rerun()
+    if st.session_state.role != None:
+        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d"),'role',datetime.now().strftime("%H:%M:%S")])
+
 
 def Main_Menu():
     col1, col2, col3 = st.columns([1,2,1])
@@ -63,7 +66,6 @@ def Main_Menu():
     col1, col2, col3, col4= st.columns(4)
     if col2.button('About',width="stretch",):
         st.switch_page('pages/1_About.py')
-        sheet_write.append_row([datetime.now().strftime("%Y-%m-%d"),'ABOUT',datetime.now().strftime("%H:%M:%S")])
     if col2.button("Data Analytics",width="stretch"):
         st.switch_page('pages/2_Data Analytics.py')
     if col3.button("Application Statistics",width="stretch"):
