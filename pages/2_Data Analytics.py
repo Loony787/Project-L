@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 import gspread
 import time 
+import plotly.express as px
 
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
 def Start():
@@ -46,8 +47,9 @@ def VISITS():
     st.dataframe(df_sort)
     df_group = df_sort.groupby('Date').size().reset_index(name='Visits')
     df_group['Visits']= df_group['Visits'].cumsum()
-    st.line_chart(df_group,x='Date', y='Visits')
-    
+    fig = px.line(df_group, x= 'Date', y='Visits')
+    fig.update_xaxes(tickformat="%d.%m.y")
+    st.plotly_chart(fig)
     
 #Content-----------------------------------------------------------------------------------------------------
 
