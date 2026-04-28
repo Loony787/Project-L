@@ -2,9 +2,8 @@ import pandas as pd
 import streamlit as st
 import time
 st.set_page_config(layout="wide",initial_sidebar_state="expanded")
-def Start():
-    if st.session_state.get('role') is None:
-        st.switch_page("Portfolio.py")
+if st.session_state.get('role') is None:
+    st.switch_page("Portfolio.py")
 
 col1, col2, col3, col4, col5 = st.columns(5)
 with col3.spinner("Loading...",show_time=True):
@@ -37,5 +36,4 @@ def Content():
                     "The focus stems from everyday exposure to issues such as long delays, traffic congestion, and inefficient administrative processes.")
 
 
-Start()
 Content()
